@@ -1,0 +1,15 @@
+@media (max-width: 412px) {
+    /* CONTENT -----------------------------------------------------------------------------------*/
+    .networksContainer, .optionsContainer {
+        justify-content: space-evenly;
+    }
+
+    .menuItem {
+        margin: 0 0 1rem 10px;
+        width: 5.35rem;
+        height: 5.35rem;
+    }
+
+
+}
+

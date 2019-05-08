@@ -1,0 +1,12 @@
+@media (max-width: 1024px) {
+    /* TOP -----------------------------------------------------------------------------------*/
+    .statusBox div:first-child {
+        font-size: 1.9vh;
+    }
+
+    .logo {
+        height: 8vh;
+        margin-top: 4vh;
+    }
+}
+

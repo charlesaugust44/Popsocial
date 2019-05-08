@@ -1,0 +1,302 @@
+
+/* CONTENT ----------------------------------------------------------------*/
+
+.categoryTitle {
+    color: #585858;
+    margin: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    width: calc(100% - 2rem);
+    border-bottom: solid 1px #e4e4e4;
+}
+
+.categoryTitle i {
+    color: #6600ff;
+    font-size: 1.1rem;
+    margin-right: .6rem;
+}
+
+.networksContainer, .optionsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    min-height: 5rem;
+    width: calc(100% - 2rem);
+    margin: 1rem;
+}
+
+.menuItem {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    width: 6rem;
+    height: 6rem;
+    border-radius: .5rem;
+    background: #6600ff;
+    color: #fff;
+    box-shadow: .2rem .2rem .2rem #ddd;
+    border: solid 1px #cacaca;
+    transition: opacity .2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (pointer: fine) {
+    .menuItem:hover {
+        cursor: pointer;
+        opacity: .9;
+    }
+}
+
+.menuItem:active {
+    background: #00a854;
+}
+
+.itemImage {
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: 1.1rem;
+}
+
+.itemName {
+    margin-bottom: .5rem;
+    font-weight: bold;
+    font-size: .8rem;
+}
+
+.facebook {
+    color: #fff;
+    background: linear-gradient(to bottom, #4961b2, #587ada);
+}
+
+.facebook .itemImage {
+    width: 2.3rem;
+    margin-top: 1.2rem;
+    background: url(../img/facebook.png) no-repeat;
+    background-size: contain;
+}
+
+.instagram {
+    color: white;
+    background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+}
+
+.instagram .itemImage {
+    width: 2.5rem;
+
+    background: url(../img/instagram.png) no-repeat;
+    background-size: contain;
+}
+
+.youtube {
+    color: #000;
+    background: white;
+}
+
+.youtube .itemImage {
+    width: 3rem;
+    background: url(../img/youtube.png) no-repeat;
+    background-size: contain;
+}
+
+.soundcloud {
+    color: #fff;
+    background: linear-gradient(to bottom, #f19700, #ef4914);
+}
+
+.soundcloud .itemImage {
+    width: 3rem;
+    margin-top: 1.3rem;
+    background: url(../img/soundcloud.png) no-repeat;
+    background-size: contain;
+}
+
+.twitter {
+    color: #fff;
+    background: #5da8dc;
+}
+
+.twitter .itemImage {
+    background: url(../img/twitter.svg) no-repeat;
+    background-size: contain;
+}
+
+.googlePlus {
+    color: #fff;
+    background: #ce4739;
+}
+
+.googlePlus .itemImage {
+    background: url(../img/googlePlus.svg) no-repeat;
+    background-size: contain;
+}
+
+.traffic {
+    color: #fff;
+    background: linear-gradient(60deg, #00ff7e 10%, #00a854);
+}
+
+.traffic .itemImage {
+    background: url(../img/traffic.svg) no-repeat;
+    background-size: contain;
+}
+
+.addCredit .itemImage {
+    background: url(../img/addCredit.svg) no-repeat;
+    background-size: contain;
+}
+
+.training .itemImage {
+    background: url(../img/training.svg) no-repeat;
+    background-size: contain;
+}
+
+.account .itemImage {
+    background: url(../img/account.svg) no-repeat;
+    background-size: contain;
+}
+
+.history .itemImage {
+    background: url(../img/history.svg) no-repeat;
+    background-size: contain;
+}
+
+/* FLOAT -----------------------------------------------------------------------------*/
+
+.dropdown {
+    z-index: 9911;
+    position: relative;
+    display: inline-block;
+}
+
+.dropdownContent {
+    margin-top: -500rem;
+    opacity: 0;
+    position: absolute;
+    background-color: var(--ligth-gray);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 9912;
+    width: 15rem;
+    border-radius: .25rem;
+    min-height: 3rem;
+    margin-left: -12.7rem;
+    transition: margin-top .01s ease, opacity .3s ease;
+}
+
+.down {
+    margin-top: .7rem;
+    opacity: 1;
+}
+
+.alertsDown {
+    margin-top: .1rem;
+    opacity: 1;
+}
+
+.dropdown:hover {
+    cursor: pointer;
+}
+
+.arrow {
+    width: 1.78rem;
+    height: .5rem;
+    background: url("../img/arrow.png") no-repeat;
+    background-size: cover;
+    float: right;
+    margin-top: -.5rem;
+}
+
+
+.dropdown .title {
+    background: #6600ff;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    height: 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding-top: .6rem;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.alert {
+    font-size: .8rem;
+    color: #333;
+    border-bottom: solid 1px #ddd;
+    width: 94%;
+    padding-top: .5rem;
+    padding-left: .5rem;
+    padding-bottom: .5rem;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.alert:hover {
+    border-left: solid .2rem #6600ff;
+    padding-left: .3rem;
+    background: #e4e4e4;
+    transition: background-color .5s ease;
+}
+
+.alert:active {
+    border-left: solid .2rem #5500c4;
+    background: #ccc;
+}
+
+.alert .timestamp {
+    color: #666;
+    font-size: .7rem;
+    text-align: right;
+    padding-right: 1rem;
+    margin: .4rem .2rem .2rem;
+}
+
+.alerts {
+    padding-bottom: 1rem;
+}
+
+.items {
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+    padding-top: .5rem;
+}
+
+.dropdownItem {
+    padding: 1rem;
+    border-bottom: solid 1px #ddd;
+    width: 80%;
+    margin-left: .5rem;
+}
+
+.dropdownItem:hover {
+    border-left: solid .2rem #6600ff;
+    padding-left: .8rem;
+    background: #e4e4e4;
+    transition: background-color .5s ease;
+}
+
+.dropdownItem:active {
+    border-left: solid .2rem #5500c4;
+    background: #ccc;
+}
+
+.dropdownItem i {
+    margin-right: .7rem;
+    font-size: 1.3rem;
+    color: #6600ff;
+}
+
+.backdrop{
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #00000022;
+    z-index: 9910;
+}

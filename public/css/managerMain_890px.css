@@ -1,0 +1,15 @@
+@media (max-width: 890px) {
+    /* TOP -----------------------------------------------------------------------------------*/
+    .topContainer {
+        width: 98%;
+    }
+
+    .topBarContainer {
+        grid-column-start: 3;
+    }
+
+    .content {
+        width: 98%;
+    }
+}
+

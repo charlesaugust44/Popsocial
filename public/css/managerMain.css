@@ -1,0 +1,129 @@
+:root {
+    --ligth-gray: #fafafa;
+    --dark-gray: #4c4c4c;
+    --primary: #6600ff;
+    --primary-dark: #5500be;
+}
+
+* {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+body {
+    background: var(--ligth-gray);
+    color: var(--dark-gray);
+    font-size: .95rem;
+}
+
+.top {
+    width: 100%;
+    height: 18vh;
+    background-image: radial-gradient(ellipse farthest-corner at 40% 0, var(--primary) -30%, var(--primary-dark) 70%);
+}
+
+.content {
+    background: #fff;
+    min-height: calc(82vh - 2rem);
+    width: 85%;
+    margin: -3vh auto 2rem;
+    border-radius: .5vh;
+    border: solid 1px #f3f3f3;
+
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+}
+
+/* TOP -----------------------------------------------------*/
+
+.topContainer {
+    height: calc(100% - 3vh);
+    width: 85%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.65fr .40fr;
+    grid-template-rows: 30% calc(70% - 1rem);
+}
+
+.logo {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    height: 12vh;
+    margin-top: 2vh;
+}
+
+.topBarContainer {
+    grid-column-start: 3;
+    grid-row-start: 1;
+    height: 100%;
+    width: 100%;
+}
+
+#accountDropdown {
+    float: right;
+}
+
+.userPhoto {
+    height: 1.8rem;
+    margin: .4rem .2rem .2rem .6rem;
+    border-radius: 100%;
+}
+
+#alertsDropdown {
+    float: right;
+}
+
+.alerts {
+    font-size: 1.5rem;
+    color: white;
+    margin: .6rem .2rem .2rem .6rem;
+}
+
+.statusBoxContainer {
+    grid-column: 2 / span 2;
+    grid-row-start: 2;
+    justify-self: center;
+    text-align: center;
+}
+
+.statusBox {
+    float: left;
+    margin-left: 1rem;
+    border-radius: .4rem;
+    background: rgba(0, 0, 0, .5);
+    height: 9vh;
+    padding-left: .7rem;
+    padding-right: .7rem;
+
+}
+
+.statusBox div:last-child {
+    width: 100%;
+    font-size: 1.25vh;
+    font-weight: bold;
+    color: #00ff7e;
+    height: 3vh;
+
+}
+
+.statusBox div:first-child {
+    padding-top: 2vh;
+    width: 100%;
+    font-size: 2.2vh;
+    font-weight: bold;
+    color: white;
+    height: 3vh;
+}
+
+.processingServices, .totalServices {
+    width: 8rem;
+}
+
+.balance div:last-child {
+    height: 1.7rem;
+    padding-top: .3rem;
+}
