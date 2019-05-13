@@ -100,6 +100,8 @@ $app->router->group([
     'namespace' => 'App\Http\Controllers',
 ], function (Router $router) {
     require __DIR__ . '/../routes/web.php';
+
+    routes($router);
 });
 
 return $app;

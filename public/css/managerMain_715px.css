@@ -4,45 +4,48 @@
     }
 
     /* TOP -----------------------------------------------------------------------------------*/
+    .statusBoxContainer {
+        width: 100%;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
 
-    .statusBoxContainer{
         grid-column: 1 / span 3;
     }
 
-    .topBarContainer{
+    .topBarContainer {
         grid-column: 2 / span 2;
     }
 
-    .processingServices, .totalServices{
-        width: 4.5rem;
+    .processingServices, .totalServices {
+
     }
 
     .topContainer {
-        row-gap: 3vh;
+        row-gap: 2.5vh;
         grid-template-columns: .3fr 2fr .40fr;
     }
 
     .logo {
-        margin-top: 0;
-        height: 8vh;
+        margin-top: .5rem;
+        height: 4vh;
         grid-column: 1 / span 5;
     }
 
-    .statusBox{
-        margin-left: .5rem;
+    .statusBox {
+        margin-left: .1rem;
+        min-width: auto;
+        width: 77%;
     }
 
     .statusBox div:last-child {
         font-size: 1.6vh;
-
     }
 
     .statusBox div:first-child {
-        padding-top: 1.5vh;
+        padding-top: 1.2vh;
         font-size: 2.5vh;
     }
-
-
 
 
 }

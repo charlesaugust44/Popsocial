@@ -5,20 +5,26 @@
     <meta name="viewport"
           content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,target-densityDpi=device-dpi">
     <title>Popsocial</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+
     <link rel="stylesheet" href="css/managerMain.css"/>
     <link rel="stylesheet" href="css/managerMain_1024px.css"/>
     <link rel="stylesheet" href="css/managerMain_890px.css"/>
     <link rel="stylesheet" href="css/managerMain_715px.css"/>
 
-    <link rel="stylesheet" href="css/managerContent.css"/>
-    <link rel="stylesheet" href="css/managerContent_412px.css"/>
+    <link rel="stylesheet" href="../../public/css/managerMain.css"/>
+    <link rel="stylesheet" href="../../public/css/managerMain_1024px.css"/>
+    <link rel="stylesheet" href="../../public/css/managerMain_890px.css"/>
+    <link rel="stylesheet" href="../../public/css/managerMain_715px.css"/>
+
     <script src="js/jquery-3.4.0.min.js"></script>
 </head>
 <body>
 
 <div class="top">
     <div class="topContainer">
-        <img class="logo" src="img/logo_white.svg">
+        <img class="logo" src="img/logo-w.png">
         <div class="topBarContainer">
             <div class="dropdown" id="accountDropdown">
                 <img class="userPhoto" src="img/user.jpg">
@@ -80,77 +86,24 @@
         </div>
 
         <div class="statusBoxContainer">
-            <div class="statusBox balance">
-                <div>R$ 150.22</div>
-                <div>SALDO</div>
+            <div class="statusBox processingServices">
+                <div>2</div>
+                <div>PROCESSANDO</div>
             </div>
             <div class="statusBox totalServices">
                 <div>320</div>
-                <div>SERVIÇOS CONCLUIDOS</div>
+                <div>CONCLUIDOS</div>
             </div>
-            <div class="statusBox processingServices">
-                <div>2</div>
-                <div>EM ANDAMENTO</div>
-
+            <div class="statusBox balance">
+                <div>R$150.22</div>
+                <div>SALDO</div>
             </div>
         </div>
     </div>
 </div>
 
 <div class="content">
-
-    <div class="categoryTitle"><i class="fa fa-globe-americas"></i> Redes Sociais / Sites</div>
-    <div class="networksContainer">
-        <div class="menuItem facebook">
-            <div class="itemImage"></div>
-            <span class="itemName">Facebook</span>
-        </div>
-        <div class="menuItem instagram">
-            <div class="itemImage"></div>
-            <span class="itemName">Instagram</span>
-        </div>
-        <div class="menuItem youtube">
-            <div class="itemImage"></div>
-            <span class="itemName">Youtube</span>
-        </div>
-        <div class="menuItem twitter">
-            <div class="itemImage"></div>
-            <span class="itemName">Twitter</span>
-        </div>
-        <div class="menuItem googlePlus">
-            <div class="itemImage"></div>
-            <span class="itemName">Google Plus</span>
-        </div>
-        <div class="menuItem soundcloud">
-            <div class="itemImage"></div>
-            <span class="itemName">Soundcloud</span>
-        </div>
-        <div class="menuItem traffic">
-            <div class="itemImage"></div>
-            <span class="itemName">Acessos</span>
-        </div>
-    </div>
-
-    <div class="categoryTitle"><i class="fa fa-outdent"></i> Opções</div>
-    <div class="optionsContainer">
-        <div class="menuItem addCredit">
-            <div class="itemImage"></div>
-            <span class="itemName">Add Saldo</span>
-        </div>
-        <div class="menuItem history">
-            <div class="itemImage"></div>
-            <span class="itemName">Histórico</span>
-        </div>
-        <div class="menuItem training">
-            <div class="itemImage"></div>
-            <span class="itemName">Treinamentos</span>
-        </div>
-        <div class="menuItem account">
-            <div class="itemImage"></div>
-            <span class="itemName">Conta</span>
-        </div>
-    </div>
-
+    <import var="contentImport"></import>
 </div>
 
 <div class="footer">

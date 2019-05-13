@@ -2,196 +2,199 @@
 
 use Laravel\Lumen\Routing\Router;
 
-$router->get('/', function () {
-    return view('mainPage');
-});
+function routes(Router $router)
+{
+    $router->get('/', 'ViewsController@index');
 
-$prefix = 'api';
+    $router->get('/manager', 'ViewsController@manager');
 
-$router->group(['prefix' => "$prefix/user"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authAll',
-        'uses' => 'UsersController@create'
-    ]);
+    $prefix = 'api';
 
-    $router->get('/token', 'UsersController@token');
+    $router->group(['prefix' => "$prefix/user"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authAll',
+            'uses' => 'UsersController@create'
+        ]);
 
-    $router->get('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'UsersController@read'
-    ]);
+        $router->get('/token', 'UsersController@token');
 
-    $router->get('', [
-        'middleware' => 'authAdmin',
-        'uses' => 'UsersController@readAll'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'UsersController@read'
+        ]);
 
-    $router->put('', [
-        'middleware' => 'authAll',
-        'uses' => 'UsersController@update'
-    ]);
-});
+        $router->get('', [
+            'middleware' => 'authAdmin',
+            'uses' => 'UsersController@readAll'
+        ]);
 
-$router->group(['prefix' => "$prefix/type"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TypesController@create'
-    ]);
+        $router->put('', [
+            'middleware' => 'authAll',
+            'uses' => 'UsersController@update'
+        ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'TypesController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/type"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TypesController@create'
+        ]);
 
-    $router->get('/network/{networkId}', [
-        'middleware' => 'authAll',
-        'uses' => 'TypesController@readByNetwork'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'TypesController@read'
+        ]);
 
-    $router->get('', [
-        'middleware' => 'authAll',
-        'uses' => 'TypesController@readAll'
-    ]);
+        $router->get('/network/{networkId}', [
+            'middleware' => 'authAll',
+            'uses' => 'TypesController@readByNetwork'
+        ]);
 
-    $router->delete('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TypesController@delete'
-    ]);
+        $router->get('', [
+            'middleware' => 'authAll',
+            'uses' => 'TypesController@readAll'
+        ]);
 
-    $router->put('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TypesController@update'
-    ]);
-});
+        $router->delete('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TypesController@delete'
+        ]);
 
-$router->group(['prefix' => "$prefix/service"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authAdmin',
-        'uses' => 'ServicesController@create'
-    ]);
+        $router->put('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TypesController@update'
+        ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'ServicesController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/service"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authAdmin',
+            'uses' => 'ServicesController@create'
+        ]);
 
-    $router->get('/type/{typeId}', [
-        'middleware' => 'authAll',
-        'uses' => 'ServicesController@readByType'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'ServicesController@read'
+        ]);
 
-    $router->get('', [
-        'middleware' => 'authAll',
-        'uses' => 'ServicesController@readAll'
-    ]);
+        $router->get('/type/{typeId}', [
+            'middleware' => 'authAll',
+            'uses' => 'ServicesController@readByType'
+        ]);
 
-    $router->delete('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'ServicesController@delete'
-    ]);
+        $router->get('', [
+            'middleware' => 'authAll',
+            'uses' => 'ServicesController@readAll'
+        ]);
 
-    $router->put('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'ServicesController@update'
-    ]);
-});
+        $router->delete('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'ServicesController@delete'
+        ]);
 
-$router->group(['prefix' => "$prefix/network"], function (Router $router) {
+        $router->put('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'ServicesController@update'
+        ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'NetworksController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/network"], function (Router $router) {
 
-    $router->get('', [
-        'middleware' => 'authAll',
-        'uses' => 'NetworksController@readAll'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'NetworksController@read'
+        ]);
 
-});
+        $router->get('', [
+            'middleware' => 'authAll',
+            'uses' => 'NetworksController@readAll'
+        ]);
 
-$router->group(['prefix' => "$prefix/training"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TrainingsController@create'
-    ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'TrainingsController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/training"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TrainingsController@create'
+        ]);
 
-    $router->get('', [
-        'middleware' => 'authAll',
-        'uses' => 'TrainingsController@readAll'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'TrainingsController@read'
+        ]);
 
-    $router->delete('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TrainingsController@delete'
-    ]);
+        $router->get('', [
+            'middleware' => 'authAll',
+            'uses' => 'TrainingsController@readAll'
+        ]);
 
-    $router->put('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'TrainingsController@update'
-    ]);
-});
+        $router->delete('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TrainingsController@delete'
+        ]);
 
-$router->group(['prefix' => "$prefix/alert"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authAdmin',
-        'uses' => 'AlertsController@create'
-    ]);
+        $router->put('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'TrainingsController@update'
+        ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'AlertsController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/alert"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authAdmin',
+            'uses' => 'AlertsController@create'
+        ]);
 
-    $router->get('', [
-        'middleware' => 'authAll',
-        'uses' => 'AlertsController@readAll'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'AlertsController@read'
+        ]);
 
-    $router->delete('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'AlertsController@delete'
-    ]);
+        $router->get('', [
+            'middleware' => 'authAll',
+            'uses' => 'AlertsController@readAll'
+        ]);
 
-    $router->put('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'AlertsController@update'
-    ]);
-});
+        $router->delete('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'AlertsController@delete'
+        ]);
 
-$router->group(['prefix' => "$prefix/purchase"], function (Router $router) {
-    $router->post('', [
-        'middleware' => 'authClient',
-        'uses' => 'PurchasesController@create'
-    ]);
+        $router->put('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'AlertsController@update'
+        ]);
+    });
 
-    $router->get('/{id}', [
-        'middleware' => 'authAll',
-        'uses' => 'PurchasesController@read'
-    ]);
+    $router->group(['prefix' => "$prefix/purchase"], function (Router $router) {
+        $router->post('', [
+            'middleware' => 'authClient',
+            'uses' => 'PurchasesController@create'
+        ]);
 
-    $router->get('/user/{userId}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'PurchasesController@readByUser'
-    ]);
+        $router->get('/{id}', [
+            'middleware' => 'authAll',
+            'uses' => 'PurchasesController@read'
+        ]);
 
-    $router->get('', [
-        'middleware' => 'authClient',
-        'uses' => 'PurchasesController@readAll'
-    ]);
+        $router->get('/user/{userId}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'PurchasesController@readByUser'
+        ]);
 
-    $router->delete('/{id}', [
-        'middleware' => 'authClient',
-        'uses' => 'PurchasesController@delete'
-    ]);
+        $router->get('', [
+            'middleware' => 'authClient',
+            'uses' => 'PurchasesController@readAll'
+        ]);
 
-    $router->put('/{id}', [
-        'middleware' => 'authAdmin',
-        'uses' => 'PurchasesController@update'
-    ]);
-});
+        $router->delete('/{id}', [
+            'middleware' => 'authClient',
+            'uses' => 'PurchasesController@delete'
+        ]);
+
+        $router->put('/{id}', [
+            'middleware' => 'authAdmin',
+            'uses' => 'PurchasesController@update'
+        ]);
+    });
+}
