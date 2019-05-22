@@ -6,32 +6,47 @@
           content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,target-densityDpi=device-dpi">
     <title>Popsocial</title>
 
-    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="<?php asset("css/bootstrap.css") ?>"/>
 
-    <link rel="stylesheet" href="css/managerMain.css"/>
-    <link rel="stylesheet" href="css/managerMain_1024px.css"/>
-    <link rel="stylesheet" href="css/managerMain_890px.css"/>
-    <link rel="stylesheet" href="css/managerMain_715px.css"/>
+    <link rel="stylesheet" href="<?php asset("css/managerMain.css") ?>"/>
+    <link rel="stylesheet" href="<?php asset("css/managerMain_1024px.css") ?>"/>
+    <link rel="stylesheet" href="<?php asset("css/managerMain_890px.css") ?>"/>
+    <link rel="stylesheet" href="<?php asset("css/managerMain_715px.css") ?>"/>
 
-    <link rel="stylesheet" href="../../public/css/managerMain.css"/>
-    <link rel="stylesheet" href="../../public/css/managerMain_1024px.css"/>
-    <link rel="stylesheet" href="../../public/css/managerMain_890px.css"/>
-    <link rel="stylesheet" href="../../public/css/managerMain_715px.css"/>
+    <script src="<?php asset("js/jquery-3.4.0.min.js") ?>"></script>
+    <?php API_URL(); ?>
 
-    <script src="js/jquery-3.4.0.min.js"></script>
+    <style>
+        .categoryTitle {
+            color: #585858;
+            margin: 1rem;
+            padding-bottom: 1rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            width: calc(100% - 2rem);
+            border-bottom: solid 1px #e4e4e4;
+        }
+
+        .categoryTitle i {
+            color: #6600ff;
+            font-size: 1.1rem;
+            margin-right: .6rem;
+        }
+    </style>
+
 </head>
 <body>
 
 <div class="top">
     <div class="topContainer">
-        <img class="logo" src="img/logo-w.png">
+        <img class="logo" src="<?php asset("img/logo-w.png") ?>">
         <div class="topBarContainer">
             <div class="dropdown" id="accountDropdown">
-                <img class="userPhoto" src="img/user.jpg">
+                <img class="userPhoto" src="<?php asset("img/user.jpg") ?>">
                 <div class="dropdownContent">
                     <div class="arrow"></div>
                     <div class="title">
-                        @aplicativo_nota1000
+                        <?php echo $manager['user']->name ?>
                     </div>
                     <div class="items">
                         <div class="dropdownItem">
@@ -87,15 +102,21 @@
 
         <div class="statusBoxContainer">
             <div class="statusBox processingServices">
-                <div>2</div>
+                <div>
+                    <?php echo $manager['processingQuantity'] ?>
+                </div>
                 <div>PROCESSANDO</div>
             </div>
             <div class="statusBox totalServices">
-                <div>320</div>
+                <div>
+                    <?php echo $manager['doneQuantity'] ?>
+                </div>
                 <div>CONCLUIDOS</div>
             </div>
             <div class="statusBox balance">
-                <div>R$150.22</div>
+                <div>
+                    <?php money($manager['user']->credit) ?>
+                </div>
                 <div>SALDO</div>
             </div>
         </div>
@@ -103,7 +124,7 @@
 </div>
 
 <div class="content">
-    <import var="contentImport"></import>
+    <?php require fragment($content); ?>
 </div>
 
 <div class="footer">
@@ -132,6 +153,7 @@
             dropdown.removeClass("down");
             dropdown.removeClass("alertsDown");
         });
+
     });
 </script>
 

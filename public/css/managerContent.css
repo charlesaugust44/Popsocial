@@ -1,21 +1,6 @@
 
 /* CONTENT ----------------------------------------------------------------*/
 
-.categoryTitle {
-    color: #585858;
-    margin: 1rem;
-    padding-bottom: 1rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    width: calc(100% - 2rem);
-    border-bottom: solid 1px #e4e4e4;
-}
-
-.categoryTitle i {
-    color: #6600ff;
-    font-size: 1.1rem;
-    margin-right: .6rem;
-}
 
 .networksContainer, .optionsContainer {
     display: flex;

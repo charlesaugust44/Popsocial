@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Factory as AuthFactory;
 use Illuminate\Support\Facades\Auth;
 
-class AuthenticateAll
+class AuthenticateAdministratorSession
 {
     /**
      * The authentication guard factory instance.
@@ -37,9 +37,12 @@ class AuthenticateAll
     public function handle($request, Closure $next, $guard = null)
     {
         $user = Auth::user();
-        if ($user === null) {
-            return response(null, 401);
-        }
+        if (!$user)
+            return redirect('login');
+        else if (!$user->isAdmin)
+            return redirect('client');
+
+        session_start();
 
         return $next($request);
     }

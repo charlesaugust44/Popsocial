@@ -1,0 +1,166 @@
+.slide {
+    display: none;
+}
+
+.title {
+    font-weight: 300;
+    text-transform: uppercase;
+    border-bottom: solid 3px #00ff7e;
+    padding: 0 .5rem;
+    display: inline;
+}
+
+.content {
+    margin-top: -10vh;
+    min-height: 42rem;
+    text-align: center;
+}
+
+.login-logo {
+    height: 3.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.formContainer {
+    width: 90%;
+    margin: 1.5rem auto auto;
+}
+
+.loginContainer, .signupContainer {
+    float: left;
+    width: 49.8%;
+    text-align: center;
+}
+
+.signupContainer {
+    border-left: solid 1px #ddd;
+}
+
+.btn {
+    margin: 15px 5px 5px;
+    padding: 15px 33px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: background-color .2s ease;
+}
+
+.btn-primary {
+    border: none;
+    color: #fff;
+    background: #06ef66;
+}
+
+.btn-primary:hover {
+    background: #06ff67;
+    cursor: pointer;
+}
+
+.btn-primary:active {
+    background: #06d75c;
+}
+
+.footer {
+    margin-bottom: .4rem;
+}
+
+.btn {
+    float: right;
+    margin-right: 0;
+}
+
+form {
+    text-align: center;
+    width: 80%;
+    margin: 2rem 0 0 10%;
+}
+
+form * {
+    text-align: left !important;
+}
+
+@media (max-width: 890px) {
+    .formContainer {
+        width: 100%;
+    }
+
+    .content {
+        width: 95%;
+        min-height: 40rem;
+        margin-top: -20vh;
+        margin-bottom: .5rem;
+    }
+}
+
+@media (max-width: 715px) {
+    .content {
+        overflow: hidden;
+    }
+
+    .formContainer .title {
+        display: none;
+    }
+
+    .slide {
+        display: block;
+        margin-top: 1rem;
+    }
+
+    .title {
+        font-size: 1.2rem;
+        margin: 2rem 1rem 1rem;
+        border: none;
+        transition: border-bottom-width .2s ease;
+    }
+
+    .selected {
+        border-bottom: solid 3px #00ff7e;
+    }
+
+    .loginContainer, .signupContainer {
+        transition: right .5s ease, left .5s ease, opacity .5s ease;
+        position: absolute;
+        margin: auto;
+        float: none;
+        border: none;
+        width: auto;
+        left: 2.5vw;
+    }
+
+    .btn {
+        margin-top: 0;
+        margin-right: 8vw;
+    }
+
+    form {
+        display: block;
+        margin: 1rem 0 0;
+        width: 95vw;
+    }
+
+    .form-group {
+        margin-left: 7vw;
+    }
+
+    .form-control {
+        box-sizing: border-box;
+        height: 3rem;
+        width: 80vw;
+
+    }
+
+    .signupContainer {
+        left: 100%;
+        opacity: 0;
+    }
+
+}
+
+@media (max-width: 412px) {
+    .login-logo {
+        height: 2.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}

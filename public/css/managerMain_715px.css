@@ -17,10 +17,6 @@
         grid-column: 2 / span 2;
     }
 
-    .processingServices, .totalServices {
-
-    }
-
     .topContainer {
         row-gap: 2.5vh;
         grid-template-columns: .3fr 2fr .40fr;

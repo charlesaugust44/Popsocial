@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use App\Http\Middleware\AuthenticateAdministrator;
+use App\Http\Middleware\AuthenticateClient;
 use Laravel\Lumen\Routing\Router;
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -63,11 +65,23 @@ $app->routeMiddleware([
 ]);
 
 $app->routeMiddleware([
+    'authAdminSession' => App\Http\Middleware\AuthenticateAdministratorSession::class,
+]);
+
+$app->routeMiddleware([
     'authAll' => App\Http\Middleware\AuthenticateAll::class,
 ]);
 
 $app->routeMiddleware([
     'authClient' => App\Http\Middleware\AuthenticateClient::class,
+]);
+
+$app->routeMiddleware([
+    'authClientSession' => App\Http\Middleware\AuthenticateClientSession::class,
+]);
+
+$app->routeMiddleware([
+    'sessionManager' => Illuminate\Session\Middleware\StartSession::class
 ]);
 
 /*
@@ -83,7 +97,15 @@ $app->routeMiddleware([
 
 // $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
+$app->register(Illuminate\Session\SessionServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
+
+
+$app->configure('session');
+
+$app->bind(Illuminate\Session\SessionManager::class, function ($app) {
+    return $app->make('session');
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -96,12 +118,8 @@ $app->register(App\Providers\AuthServiceProvider::class);
 |
 */
 
-$app->router->group([
-    'namespace' => 'App\Http\Controllers',
-], function (Router $router) {
-    require __DIR__ . '/../routes/web.php';
+require __DIR__ . '/../routes/web.php';
 
-    routes($router);
-});
+routes($app->router);
 
 return $app;

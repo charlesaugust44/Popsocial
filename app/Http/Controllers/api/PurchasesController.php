@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Api\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Network;
 use App\Purchase;
 use App\Status;
 use App\User;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,7 +63,7 @@ class PurchasesController extends Controller
         return response()->json($purchases);
     }
 
-    public function readByUser($userId)
+    public function readAllByUser($userId)
     {
         User::query()->findOrFail($userId);
 
@@ -86,6 +86,35 @@ class PurchasesController extends Controller
             return response(null, 204);
 
         return response()->json($purchases);
+    }
+
+    private function readQuantityByUser($userId, $status)
+    {
+        User::query()->findOrFail($userId);
+
+        $equalsUser = function ($q) use ($userId) {
+            $q->where('userId', $userId);
+        };
+
+        $purchases = Purchase::query()
+            ->where('userId', '=', $userId)
+            ->where('status', '=', $status)
+            ->count('*');
+
+        /*if (count($purchases) === 0)
+            return response(null, 204);*/
+
+        return response()->json($purchases);
+    }
+
+    public function readDoneQuantityByUser($userId)
+    {
+        return $this->readQuantityByUser($userId, Status::DONE);
+    }
+
+    public function readProcessingQuantityByUser($userId)
+    {
+        return $this->readQuantityByUser($userId, Status::PROCESSING);
     }
 
     public function delete($id)

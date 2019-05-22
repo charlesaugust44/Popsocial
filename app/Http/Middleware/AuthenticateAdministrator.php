@@ -38,7 +38,7 @@ class AuthenticateAdministrator
     {
         $user = Auth::user();
         if (!$user || !$user->isAdmin) {
-            return response("Unauthorized", 401);
+            return response(null, 401);
         }
 
         return $next($request);

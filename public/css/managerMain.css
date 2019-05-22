@@ -1,12 +1,14 @@
+@import url("http://fonts.googleapis.com/css?family=Poppins:100,200,300,regular,500,600,700,800,900");
+
 :root {
     --ligth-gray: #fafafa;
-    --dark-gray: #4c4c4c;
+    --dark-gray: #5e5e5e;
     --primary: #6600ff;
     --primary-dark: #5500be;
 }
 
 * {
-    font-family: sans-serif;
+    font-family: Poppins,sans-serif;
     margin: 0;
 }
 

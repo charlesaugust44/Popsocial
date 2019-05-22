@@ -4,5 +4,7 @@ namespace App;
 
 class Status
 {
-    const PROCESSING = 0, EXECUTING = 1, DONE = 3;
+    const PROCESSING = 0, EXECUTING = 1, DONE = 2;
+    const alias = ['processing','executing','done'];
+
 }
